@@ -16,7 +16,7 @@ if __name__ == '__main__':
 	time.sleep(1)
 	print("\nWelcome young Kitan.")
 	time.sleep(3)
-	s= """\nThis is a dark place, and not every Kitan comes out of it. Many Kitans were taken by the Evil Magic Kitan. Some were cursed and some enchanted. When you defeat them, their souls are freed again, but be careful that the Magic Kitan does not get your soul on your Quest."""
+	s= """\nThis is a dark place. Many Kitans were taken by the Evil Magic Lizard. They were put under a spell, but you can heal them. Before you can do that you need to play with them to make them exhausted."""
 
 	print(s+"\n")
 	time.sleep(5)
@@ -45,5 +45,5 @@ if __name__ == '__main__':
 		if command[0] in commands.Commands:
 			commands.Commands[command[0]](p, map)
 		else:
-			print("It seems that you have no idea about what is going on.")
+			print("Use one of the commands.")
 		#map.print_state()

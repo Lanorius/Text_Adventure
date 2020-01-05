@@ -1,3 +1,5 @@
+import random
+
 class Monster: 
 	def __init__(self, name, hp, mana, armor, damage):
 		self.name = name
@@ -11,17 +13,25 @@ class Monster:
 		self.hp = self.hp - max(0,(damage - self.armor))
 		if self.hp <= 0.5*self.max_hp:
 			if self.hp >= 0.2*self.max_hp:
-				print(self.name +" looks damaged.")
+				print(self.name +" looks exhausted.")
 			else:
-				print(self.name +" is heavily damaged.")
+				print(self.name +" is very exhaused.")
 		if self.hp <= 0:
 			self.die()
+
+	def heal(self):
+		if (random.randint(1,101) >= self.hp/self.max_hp*100):
+			print("You removed the curse!")
+			self.hp = 0
+		else:
+			print("The curse resisted the healing.")
+
 
 	def is_dead(self):
 		return self.hp <= 0
 
 	def die(self):
-		print(self.name +" was defeated.")
+		print(self.name +" was so exhaused from playing that it rolled on the ground and purs very happily.")
 
 class Cursed_Kitan(Monster):
 	def __init__(self):
@@ -30,3 +40,7 @@ class Cursed_Kitan(Monster):
 class Enchanted_Kitan(Monster):
 	def __init__(self):
 		Monster.__init__(self,"Enchanted Kitan",10,10,0,6)
+
+class Evil_Magic_Lizard(Monster):
+	def __init__(self):
+		Monster.__init__(self,"Evil Magic Lizard",200,100,5,20)

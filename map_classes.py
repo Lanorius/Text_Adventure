@@ -8,7 +8,7 @@ class Field:
 
 	def print_state(self):
 		if len(self.enemies) == 0:
-			print ("\nYou raise your light, but the candle does not show enemies closeby.")
+			print ("\nYou raise your light, but the candle does not show Kitans closeby.")
 		else:
 			print("\nYou raise your light and the light of the candle falls on:")
 			for i in self.enemies:
@@ -38,6 +38,7 @@ class Map:
 				fields.append(Field.gen_random())
 			self.state.append(fields)
 
+
 	def print_state(self):
 		self.state[self.x][self.y].print_state()
 
@@ -46,24 +47,24 @@ class Map:
 
 	def forward(self):
 		if self.x == len(self.state[self.x]) - 1:
-			print("The magic Kitan prevents you from leaving the plane.")
+			print("The Evil Magic Lizard prevents you from leaving the plane.")
 		else:
 			self.x = self.x + 1
 
 	def backward(self):
 		if self.x == 0:
-			print("The magic Kitan prevents you from leaving the plane.")
+			print("The Evil Magic Lizard prevents you from leaving the plane.")
 		else:
 			self.x = self.x - 1
 
 	def right(self):
 		if self.y == len(self.state[self.x]) - 1:
-			print("The magic Kitan prevents you from leaving the plane.")
+			print("The Evil Magic Lizard prevents you from leaving the plane.")
 		else:
 			self.y = self.y + 1
 
-	def backward(self):
+	def left(self):
 		if self.y == 0:
-			print("The magic Kitan prevents you from leaving the plane.")
+			print("The Evil Magic Lizard prevents you from leaving the plane.")
 		else:
 			self.y = self.y - 1

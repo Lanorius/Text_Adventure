@@ -12,20 +12,16 @@ def fight(p,m):
 			print("\nTurn: "+ str(turn)+"\n")
 			#clear()
 			time.sleep(1)
-			player_in = input("attack (a) or heal (h)? ")
+			player_in = input("play (p) or heal (h)? ")
 			time.sleep(1)
-			if player_in == "a" or player_in == "attack":
+			if player_in == "p" or player_in == "play":
 				if len(enemies) > 1:
-
-
-					###Problem Area
-					
 					while True:
-						player_in = input("Whom do you attack? Please enter the number. ")
+						player_in = input("Whom do you play with? Please enter the number. ")
 						try:
 							player_in = int(player_in)
 							dmg = random.randint(2,p.damage)
-							print("\nYou hit the "+ str(enemies[int(player_in)-1].name +" and deal " + str(max(0,dmg-enemies[int(player_in)-1].armor))+ " damage."))
+							print("\nYou play with the "+ str(enemies[int(player_in)-1].name +" and remove " + str(max(0,dmg-enemies[int(player_in)-1].armor))+ " points of their stamina."))
 							enemies[int(player_in)-1].get_hit(enemies[int(player_in)-1].hp,dmg)
 							break
 						except:
@@ -33,13 +29,26 @@ def fight(p,m):
 		
 				else:
 					dmg = random.randint(2,p.damage)
-					print("You hit the "+ str(enemies[0].name +" and deal " + str(max(0,dmg-enemies[0].armor))+ " damage."))
+					print("\nYou play with the "+ str(enemies[0].name + " and remove " + str(max(0,dmg-enemies[0].armor))+ " points of their stamina."))
 					enemies[0].get_hit(enemies[0].hp,dmg)
 				break
+
 			elif player_in == "h" or player_in == "heal":
-				print("Healing does not work yet")
+				if len(enemies) > 1:
+					while True:
+						player_in = input("Whom do you try to heal? Please enter the number. ")
+						try:
+							player_in = int(player_in)
+							enemies[int(player_in)-1].heal()
+							break
+						except:
+							print("Please give a valid number.")
+		
+				else:
+					enemies[0].heal()
+				break
 			else:
-				print("Please choose between attack (a) and heal (h).")
+				print("Please choose between play (p) and heal (h).")
 			
 
 		#enemies[0].get_hit(enemies[0].hp,p.damage)
@@ -50,12 +59,12 @@ def fight(p,m):
 			time.sleep(1)
 			dmg = random.randint(1,i.damage)
 			p.get_hit(p.hp,dmg)
-			print(str(i.name) + " hits you for " + str(max(0,dmg-p.armor)) + " damage.")
+			print(str(i.name) + " plays with you and removes " + str(max(0,dmg-p.armor)) + " points of your stamina.")
 		time.sleep(1)
-		print("You have " + str(p.hp) + "hp left.")
+		print("You have " + str(p.hp) + " stamina left.")
 	#if(p.hp < p.max_hp):
 	#	print("You are wounded and have " + str(p.hp) + "hp left.")
 	if damage_modifier > 0:
 		time.sleep(1)
-		print("\nDefeating your enemies made you stronger and increased your damage by " +str(damage_modifier))
+		print("\nFreeing the Kitan made you even better at playing around!") #+str(damage_modifier))
 		p.damage+=damage_modifier
