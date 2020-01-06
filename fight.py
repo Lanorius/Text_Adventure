@@ -15,24 +15,8 @@ def fight(p,m):
 			player_in = input("play (p) or heal (h)? ")
 			time.sleep(1)
 			if player_in == "p" or player_in == "play":
-				if len(enemies) > 1:
-					while True:
-						player_in = input("Whom do you play with? Please enter the number. ")
-						try:
-							player_in = int(player_in)
-							dmg = random.randint(2,p.damage)
-							print("\nYou play with the "+ str(enemies[int(player_in)-1].name +" and remove " + str(max(0,dmg-enemies[int(player_in)-1].armor))+ " points of their stamina."))
-							enemies[int(player_in)-1].get_hit(enemies[int(player_in)-1].hp,dmg)
-							break
-						except:
-							print("Please give a valid number.")
-		
-				else:
-					dmg = random.randint(2,p.damage)
-					print("\nYou play with the "+ str(enemies[0].name + " and remove " + str(max(0,dmg-enemies[0].armor))+ " points of their stamina."))
-					enemies[0].get_hit(enemies[0].hp,dmg)
+				play(p,m,enemies)
 				break
-
 			elif player_in == "h" or player_in == "heal":
 				if len(enemies) > 1:
 					while True:
@@ -68,3 +52,27 @@ def fight(p,m):
 		time.sleep(1)
 		print("\nFreeing the Kitan made you even better at playing around!") #+str(damage_modifier))
 		p.damage+=damage_modifier
+
+
+
+def play(p,m,enemies):
+	if len(enemies) > 1:
+		while True:
+			player_in = input("Whom do you play with? Please enter the number. ")
+			try:
+				player_in = int(player_in)
+				dmg = random.randint(2,p.damage)
+				print("\nYou play with the "+ str(enemies[int(player_in)-1].name +" and remove " + str(max(0,dmg-enemies[int(player_in)-1].armor))+ " points of their stamina."))
+				enemies[int(player_in)-1].get_hit(enemies[int(player_in)-1].hp,dmg)
+				break
+			except:
+				print("Please give a valid number.")
+		
+	else:
+		dmg = random.randint(2,p.damage)
+		print("\nYou play with the "+ str(enemies[0].name + " and remove " + str(max(0,dmg-enemies[0].armor))+ " points of their stamina."))
+		enemies[0].get_hit(enemies[0].hp,dmg)
+	
+
+def heal(p,m):
+	pass
