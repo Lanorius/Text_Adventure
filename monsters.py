@@ -43,4 +43,4 @@ class Enchanted_Kitan(Monster):
 
 class Evil_Magic_Lizard(Monster):
 	def __init__(self):
-		Monster.__init__(self,"Evil Magic Lizard",200,100,5,20)
+		Monster.__init__(self,"Evil Magic Lizard",200,100,3,15)

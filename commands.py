@@ -35,7 +35,7 @@ def load():
 	pass
 
 def quit_game(p,m):
-	print("The magic Kitan appears and takes you away.")
+	print("The magic Lizard appears and takes you away.")
 	exit(0)
 
 

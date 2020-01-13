@@ -38,7 +38,7 @@ if __name__ == '__main__':
 			print("Be specific young Kitan. You have to type Warrior or Wizard. More classes may come later.\n")
 
 
-	map = map_classes.Map(20,20)
+	map = map_classes.Map(1,1)
 	print("(type help to list the available commands)\n")
 	while True:
 		command = input(">").lower().split(" ")

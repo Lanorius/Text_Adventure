@@ -8,7 +8,7 @@ class Field:
 
 	def print_state(self):
 		if len(self.enemies) == 0:
-			print ("\nYou raise your light, but the candle does not show Kitans closeby.")
+			print("\nYou raise your light, but the candle does not show Kitans closeby.")
 		else:
 			print("\nYou raise your light and the light of the candle falls on:")
 			for i in self.enemies:
@@ -32,11 +32,16 @@ class Map:
 		self.state = []
 		self.x = 0
 		self.y = 0
+		boss_cords = (random.randint(0,width-1),random.randint(0,height-1))
 		for i in range(width):
 			fields = []
 			for j in range(height):
-				fields.append(Field.gen_random())
+				if (i,j) == boss_cords:
+					fields.append(Field([monsters.Evil_Magic_Lizard()]))
+				else:
+					fields.append(Field.gen_random())
 			self.state.append(fields)
+
 
 
 	def print_state(self):

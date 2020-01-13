@@ -20,7 +20,7 @@ class Character:
 			self.die()
 
 	def die(self):
-		exit("Everything turns dark. The magic Kitan, takes your soul.")
+		exit("You were defeated. Everything turns dark. The magic Lizard, takes your soul.")
 
 
 
