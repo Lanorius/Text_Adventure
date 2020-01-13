@@ -1,7 +1,7 @@
 #Magic Kitan 
 import random
 import os
-import time
+#import time
 #my own files
 import character
 import commands
@@ -13,19 +13,19 @@ clear = lambda: os.system('clear') #on Linux System
 
 
 if __name__ == '__main__':
-	time.sleep(1)
+	#time.sleep(1)
 	print("\nWelcome young Kitan.")
-	time.sleep(3)
+	#time.sleep(3)
 	s= """\nThis is a dark place. Many Kitans were taken by the Evil Magic Lizard. They were put under a spell, but you can heal them. Before you can do that you need to play with them to make them exhausted."""
 
 	print(s+"\n")
-	time.sleep(5)
+	#time.sleep(5)
 	print("You have an everburning candle, that shows you your surroundings after each step.\n")
-	time.sleep(3)
+	#time.sleep(3)
 
 	#def __init__(self,name, player_class, hp, mana, capacity, strength, armor, inteligence, damage, healing)
 	name = input("Choose a name young Kitan. ")
-	time.sleep(2)
+	#time.sleep(2)
 	while True:
 		player_class = input("Are you a Warrior Kitan or a Wizard Kitan? Type Warrior or Wizard. ")
 		if player_class == "Warrior":

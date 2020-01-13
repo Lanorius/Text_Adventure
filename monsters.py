@@ -19,7 +19,7 @@ class Monster:
 		if self.hp <= 0:
 			self.die()
 
-	def heal(self):
+	def healing(self):
 		if (random.randint(1,101) >= self.hp/self.max_hp*100):
 			print("You removed the curse!")
 			self.hp = 0
