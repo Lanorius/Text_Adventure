@@ -3,6 +3,8 @@ import random
 import os
 #import time
 #my own files
+from os.path import sep
+
 import character
 import commands
 import map_classes
@@ -27,7 +29,17 @@ if __name__ == '__main__':
 	name = input("Choose a name young Kitan. ")
 	#time.sleep(2)
 	while True:
-		player_class = input("Are you a Warrior Kitan or a Wizard Kitan? Type Warrior or Wizard. ")
+		print("Here is a list of professions you might have: ")
+		print(*(list(character.Classes.keys())), sep =", ")
+		player_class = input("What class do you chose Kitan?")
+
+		try:
+			p = character.Classes[player_class](name,str(player_class))
+			break
+		except:
+			print("Be specific young Kitan. Type the exact name, please.\n")
+
+		'''
 		if player_class == "Warrior":
 			p = character.Player(name, "Warrior", 200,0,30,5,3,0.3,5,0)
 			break
@@ -35,10 +47,10 @@ if __name__ == '__main__':
 			p = character.Player(name, "Wizard", 100,100,15,1,1,0.8,8,5)
 			break
 		else:
-			print("Be specific young Kitan. You have to type Warrior or Wizard. More classes may come later.\n")
+			print("Be specific young Kitan. Type the exact name, please.\n")
+		'''
 
-
-	map = map_classes.Map(1,1)
+	map = map_classes.Map(5,5)
 	print("(type help to list the available commands)\n")
 	while True:
 		command = input(">").lower().split(" ")

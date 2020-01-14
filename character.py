@@ -36,3 +36,28 @@ class Player(Character):
 	def rest(self):
 		self.hp = self.max_hp
 		self.mana = self.max_mana
+
+class Warrior(Character):
+	def __init__(self, name, player_class = "Warrior", hp = 200, mana = 0, capacity = 30, strength = 20, armor = 5, inteligence= 10, damage = 5, healing = 0):
+		Character.__init__(self, name, hp, mana, capacity, strength, armor, inteligence, damage, healing)
+		self.name = name
+		self.player_class = player_class
+		self.max_hp = hp
+		self.max_mana = mana
+
+class Wizard(Character):
+	def __init__(self, name, player_class="Wizard", hp=100, mana=100, capacity=20, strength=10, armor=3, inteligence=20, damage=8, healing=10):
+		Character.__init__(self, name, hp, mana, capacity, strength, armor, inteligence, damage, healing)
+		self.name = name
+		self.player_class = player_class
+		self.max_hp = hp
+		self.max_mana = mana
+
+
+Classes = {
+	'Warrior': Warrior,
+	'Wizard': Wizard,
+	#'Thief': Thief,
+	#'Bunny': Bunny,
+
+}

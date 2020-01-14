@@ -31,7 +31,10 @@ class Monster:
 		return self.hp <= 0
 
 	def die(self):
-		print(self.name +" was so exhaused from playing that it rolled on the ground and purs very happily.")
+		if self.name == "Evil Magic Lizard":
+			exit("You have defeated the Evil Magic Lizard, and all Kitans are free!\n Thank you for playing!")
+		else:
+			print(self.name +" was so exhaused from playing that it rolled on the ground and purs very happily.")
 
 class Cursed_Kitan(Monster):
 	def __init__(self):
