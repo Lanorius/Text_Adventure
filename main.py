@@ -31,7 +31,7 @@ if __name__ == '__main__':
 	while True:
 		print("Here is a list of professions you might have: ")
 		print(*(list(character.Classes.keys())), sep =", ")
-		player_class = input("What class do you chose Kitan?")
+		player_class = input("What class do you chose Kitan? ")
 
 		try:
 			p = character.Classes[player_class](name,str(player_class))
