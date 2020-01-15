@@ -23,6 +23,8 @@ class Monster:
 		if (random.randint(1,101) >= self.hp/self.max_hp*100):
 			print("You removed the curse!")
 			self.hp = 0
+			if self.name == "Evil Magic Lizard":
+				exit("You have defeated the Evil Magic Lizard, and all Kitans are free!\n Thank you for playing!")
 		else:
 			print("The curse resisted the healing.")
 

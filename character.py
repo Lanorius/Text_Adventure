@@ -1,5 +1,5 @@
 class Character:
-	def __init__(self, name, hp, mana, capacity, strength, armor, inteligence, damage, healing):#,inventory):
+	def __init__(self, name, hp, mana, capacity, strength, armor, inteligence, damage, healing):
 		self.name = name
 		self.hp = hp
 		self.mana = mana
@@ -9,7 +9,6 @@ class Character:
 		self.inteligence = inteligence 
 		self.damage = damage
 		self.healing = healing
-		#self.inventory = []
 
 	def attack(self,):
 		pass

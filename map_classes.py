@@ -17,15 +17,15 @@ class Field:
 
 	@staticmethod
 	def gen_random():
-		rand = random.randint(0,3)
-		if rand == 0:
-			return Field([])
-		if rand == 1:
+		rand = random.randint(0,100)
+		if rand % 5 == 0:
 			return Field([monsters.Cursed_Kitan()])
-		if rand == 2:
+		if rand % 4 == 0:
 			return Field([monsters.Enchanted_Kitan()])
-		if rand == 3:
+		if rand % 7 == 0:
 			return Field([monsters.Cursed_Kitan(),monsters.Enchanted_Kitan()])
+		else:
+			return Field([])
 
 class Map:
 	def __init__(self,width, height):
