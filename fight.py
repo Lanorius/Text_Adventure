@@ -1,7 +1,7 @@
 import random
 #import time
 
-def fight(p,m):
+def fight(p,m,i):
 	enemies = m.get_enemies()
 	damage_modifier = random.randint(0,len(enemies))
 	turn = 0
@@ -24,9 +24,7 @@ def fight(p,m):
 
 			else:
 				print("Please choose between play (p) and heal (h).")
-			
 
-		#enemies[0].get_hit(enemies[0].hp,p.damage)
 		for i in range((len(enemies)-1),-1,-1):
 			if enemies[i].hp <= 0:
 				enemies.remove(enemies[i])

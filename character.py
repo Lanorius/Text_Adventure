@@ -74,7 +74,7 @@ Classes = {
 	'Wizard': Wizard,
 	'Rogue': Rogue,
 	'Bunny': Bunny,
-	#'Thief': Thief,
-	#'Bunny': Bunny,
-
 }
+
+
+

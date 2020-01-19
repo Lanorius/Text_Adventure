@@ -10,6 +10,7 @@ import commands
 import map_classes
 import items #unused 
 #import fight
+import inventory
 
 clear = lambda: os.system('clear') #on Linux System
 
@@ -35,6 +36,7 @@ if __name__ == '__main__':
 
 		try:
 			p = character.Classes[player_class](name,str(player_class))
+			i = inventory.Inventory(p.capacity)
 			break
 		except:
 			print("Be specific young Kitan. Type the exact name, please.\n")
@@ -50,12 +52,12 @@ if __name__ == '__main__':
 			print("Be specific young Kitan. Type the exact name, please.\n")
 		'''
 
-	map = map_classes.Map(5,5)
+	map = map_classes.Map(100,100)
 	print("(type help to list the available commands)\n")
 	while True:
 		command = input(">").lower().split(" ")
 		if command[0] in commands.Commands:
-			commands.Commands[command[0]](p, map)
+			commands.Commands[command[0]](p, map, i)
 		else:
 			print("Use one of the commands.")
 		#map.print_state()

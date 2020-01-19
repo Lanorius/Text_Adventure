@@ -1,14 +1,20 @@
 import random
+import random
 import monsters
+import items
 
 class Field:
-	def __init__(self,enemies):
+	def __init__(self,enemies,items):
 		self.enemies = enemies
-		self.loot = []
+		self.items = items
 
 	def print_state(self):
-		if len(self.enemies) == 0:
-			print("\nYou raise your light, but the candle does not show Kitans closeby.")
+		if len(self.enemies) == len(self.items) == 0:
+			print("\nYou raise your light, but the candle does not show anything close by.")
+		elif len(self.items) != 0:
+			print("\nYou spot an item laying on the ground:")
+			for i in self.items:
+				print(i.name)
 		else:
 			print("\nYou raise your light and the light of the candle falls on:")
 			for i in self.enemies:
@@ -19,13 +25,16 @@ class Field:
 	def gen_random():
 		rand = random.randint(0,100)
 		if rand % 5 == 0:
-			return Field([monsters.Cursed_Kitan()])
+			return Field([monsters.Cursed_Kitan()],[])
 		if rand % 4 == 0:
-			return Field([monsters.Enchanted_Kitan()])
+			return Field([monsters.Enchanted_Kitan()],[])
 		if rand % 7 == 0:
-			return Field([monsters.Cursed_Kitan(),monsters.Enchanted_Kitan()])
+			return Field([monsters.Cursed_Kitan(), monsters.Enchanted_Kitan()],[])
+		if rand % 3 == 0:
+			return Field([],[items.StaminaPotion()])
 		else:
-			return Field([])
+			#return Field([],[])
+			return Field([], [items.StaminaPotion()])
 
 class Map:
 	def __init__(self,width, height):
@@ -37,7 +46,7 @@ class Map:
 			fields = []
 			for j in range(height):
 				if (i,j) == boss_cords:
-					fields.append(Field([monsters.Evil_Magic_Lizard()]))
+					fields.append(Field([monsters.Evil_Magic_Lizard()],[]))
 				else:
 					fields.append(Field.gen_random())
 			self.state.append(fields)
@@ -49,6 +58,9 @@ class Map:
 
 	def get_enemies(self):
 		return self.state[self.x][self.y].enemies
+
+	def get_items(self):
+		return self.state[self.x][self.y].items
 
 	def forward(self):
 		if self.x == len(self.state[self.x]) - 1:

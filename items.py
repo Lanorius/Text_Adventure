@@ -1,13 +1,15 @@
 class Item:
-	def __init__self(self, weight, worth):
+	def __init__(self, name, weight, worth):
+		self.name = name
 		self.weight = weight
 		self.worth = worth
 
 class Potion(Item):
-	def __init__self(self, weight, worth):
-		Item.__init__(self,weight,worth)
+	def __init__(self):
+		Item.__init__(self,name, weight,worth)
 
 class StaminaPotion(Potion):
-	def __init__self(self, weight, worth, regenerated_health=10):
-		Potion.__init__(self, weight, worth)
-		self.regenerated_health = regenerated_health
+	def __init__(self, health = 10):
+		Item.__init__(self, "Stamina Potion",2,3)
+		self.health = health
+
