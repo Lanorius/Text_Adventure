@@ -1,4 +1,5 @@
 import fight
+import os
 #import inventory
 import items
 
@@ -56,6 +57,27 @@ def pick_up(p,m,i):
 		else:
 			print("The items are to heavy.")
 
+def use(p,m,i):
+	while True:
+		item = input("What item do you want to use? (type none to quit) ")
+		a=0
+		if item == "none":
+			break
+		for it in i.items:
+			if it.name == item:
+				if p.hp == p.max_hp:
+					print("You don't need that potion right now.")
+					a=1
+				else:
+					i.items.remove(it)
+					p.hp = min(p.hp + it.health, p.max_hp)
+					print("Your stamina is now at: " + str(p.hp))
+				break
+			break
+		if(a==0):
+			print("You don't have an item with that name.")
+
+
 def rest(p,m,i):
 	p.rest()
 
@@ -70,6 +92,7 @@ Commands = {
 	'fight': fight.fight,
 	'pick_up': pick_up,
 	'inventory': inventory,
+	'use': use,
 	'quit': quit_game,
 	#'save': save,
 	#'load': load,
