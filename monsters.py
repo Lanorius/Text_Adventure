@@ -40,12 +40,12 @@ class Monster:
 
 class Cursed_Kitan(Monster):
 	def __init__(self):
-		Monster.__init__(self,"Cursed Kitan",20,0,2,4)
+		Monster.__init__(self,"Cursed Kitan",20,0,2,10)
 
 class Enchanted_Kitan(Monster):
 	def __init__(self):
-		Monster.__init__(self,"Enchanted Kitan",10,10,0,6)
+		Monster.__init__(self,"Enchanted Kitan",10,10,0,15)
 
 class Evil_Magic_Lizard(Monster):
 	def __init__(self):
-		Monster.__init__(self,"Evil Magic Lizard",200,100,3,15)
+		Monster.__init__(self,"Evil Magic Lizard",200,100,3,20)

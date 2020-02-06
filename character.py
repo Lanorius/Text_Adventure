@@ -23,21 +23,8 @@ class Character:
 
 
 
-
-class Player(Character):
-	def __init__(self,name, player_class, hp, mana, capacity, strength, armor, inteligence, damage, healing):
-		Character.__init__(self, name, hp, mana, capacity, strength, armor, inteligence, damage, healing)
-		self.name = name
-		self.player_class = player_class
-		self.max_hp = hp
-		self.max_mana = mana
-
-	def rest(self):
-		self.hp = self.max_hp
-		self.mana = self.max_mana
-
 class Warrior(Character):
-	def __init__(self, name, player_class = "Warrior", hp = 200, mana = 0, capacity = 30, strength = 20, armor = 5, inteligence= 10, damage = 5, healing = 0):
+	def __init__(self, name, player_class = "Warrior", hp = 200, mana = 0, capacity = 30, strength = 20, armor = 5, inteligence= 10, damage = 8, healing = 0):
 		Character.__init__(self, name, hp, mana, capacity, strength, armor, inteligence, damage, healing)
 		self.name = name
 		self.player_class = player_class

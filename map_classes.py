@@ -24,17 +24,17 @@ class Field:
 	@staticmethod
 	def gen_random():
 		rand = random.randint(0,100)
-		if rand % 5 == 0:
+		if (0 < rand < 30):
 			return Field([monsters.Cursed_Kitan()],[])
-		if rand % 4 == 0:
+		if (31 < rand < 60):
 			return Field([monsters.Enchanted_Kitan()],[])
-		if rand % 7 == 0:
+		if (61 < rand < 80):
 			return Field([monsters.Cursed_Kitan(), monsters.Enchanted_Kitan()],[])
-		if rand % 3 == 0:
+		if (81 < rand < 90):
 			return Field([],[items.StaminaPotion()])
 		else:
-			#return Field([],[])
-			return Field([], [items.StaminaPotion()])
+			return Field([],[])
+			#return Field([], [items.StaminaPotion()])
 
 class Map:
 	def __init__(self,width, height):

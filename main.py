@@ -11,6 +11,7 @@ import map_classes
 import items #unused 
 #import fight
 import inventory
+import curses, time
 
 clear = lambda: os.system('clear') #on Linux System
 

@@ -6,3 +6,5 @@ class Inventory:
     def show_items(self):
         for i in self.items:
             print(i.name)
+        if len(self.items) == 0:
+            print("You have no items at the moment.")
